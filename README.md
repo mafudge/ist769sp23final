@@ -49,27 +49,28 @@ I suggest getting familiar with the data prior to attempting to solve the proble
 
 Complete all answers in the `Exam.ipynb` file in the `work` folder! You will turn this file in to Blackboard in addition to your official exam document submission.
 
-Each question is worth TODO points. 
+Each question is worth 5 points. 
 
 For the highest possible marks, for each question, include the following in the submission document:
 1. The TEXT of the code you wrote (this will be in your Exam.ipynb file)
 2. A CLEAR screenshot of your code with your netid in the screenshot. (only screenshot the region, not the entire window!)
 3. A CLEAR screenshot of the output of your code with your netid in the screenshot. (only screenshot the region, not the entire window!)
-4. If know your answer is incorrect, explain what you tried/omitted/did not get correct, by adding comments to your code/commenting out code that does not run. This should appear in your text and screenshot.
+4. If you know your answer is NOT correct, explain what you tried/omitted/did not get correct, by adding comments to your code/commenting out code that does not run. This should appear in your text and screenshot.
 
 ### Advice for the Best Grade
 
 - Review how to connect to `mongodb`, `minio`, `cassandra`, '`elasticsearch`, `kibana` and `neo4j` from `Spark`. Figure this out BEFORE you start the exam. 
 - When you answer the questions, PySpark and use the DataFrames API. You should NOT need to use RDD or fall back to PoP, unless explicitly asked to do so. While you CAN solve these problems using both of those approaches, that is not what was taught in class. 
 - There are many ways to solve these problems. If you get stuck, try a different approach. I expect everyone will have slightly different solutions.
+- Your output needs to show the code solves the problem clearly and trivially. For example, if the question asks for customers who have not placed an order the query output should show that.
 - Use the `Exam.ipynb` file in the `work` folder to write your code! And Clearly label your code with comments and markdown cells. You will turn in this file along with your exam submission document.
-- If you cannot figure out the answer to the question, I suggest writing simpler code and use that as your answer. This way you can complete the next question in the exam. It is better to have running code that is incorrect than code that will not run.
+- If you cannot figure out the answer to the question, I suggest writing simpler code and using that as your answer. This way you can complete the next question in the exam. It is better to have running code that is incorrect than code that will not run.
 - Questions you think are correct, but are not will be graded more harshly than questions which you know are incorrect.
 - Every answer should be able to be executed multiple times without error, and with the same results.  If you load data, make sure the same data loads each time without adding extra records.
 
 ### Exam Questions
 
-Unless you are explicitly instructed otherwise, answer each of the following using PySpark / Spark SQL. For any queries you write make sure to include a `printSchema()` and a sample of the output which clearly demonstrates the code is correct.
+Unless you are explicitly instructed otherwise, answer each of the following using PySpark / Spark SQL. For any queries you write make sure to include a `printSchema()` and a sample of the output which  demonstrates the code is correct clearly and trivially.
 
 1. Create a spark session that is configured to connect to `mongodb`, `minio`, `cassandra`, '`elasticsearch` and `neo4j`.
 2. Demonstrate you can read the process-oriented data `enrollments` and `sections` from `minio` using PySpark. 
@@ -81,7 +82,7 @@ Unless you are explicitly instructed otherwise, answer each of the following usi
 8. Load the data frame you created in question 7 into `elasticsearch`, under the index `sections`.  Demonstrate the data is in the index by querying back it with PySpark. 
 9. Similar to question 4, prepare the `enrollments` for loading into `cassandra` and `elasticsearch` with Spark or Spark SQL. For this wide table we want to include the same reference data for `sections` but include the `student` attributes and the `program` data associated with the student. 
 10. Load the data frame you created in question 8 into `elasticsearch`, under the index `enrollments`. This time, just Omit all array types to make the problem simpler (`elective_courses`, `key_assignments`, `course_prerequisites`, etc...)
-11. TODO
+11. Write spark to clear the `neo4j` database of all nodes and relationships.
 12. Load the `courses` and `program` data into `neo4j` as nodes. Exclude the `requirements`, `electives` and `prerequisites` from the node attributes. Demonstrate the data in `neo4j` by querying back it using one or more Cypher queries. NOTE: the Neo4J `name` attribute is what will display on the node bubbles.
 13. Load the `requirements` and `electives` data into `neo4j` as relationships to the nodes you created in step 12. Use the `program` data to form the `required` and `elective` course relationships. Demonstrate the relationships in `neo4j` are present by querying back it using a Cypher query to display the relationships.
 14. Load the `prerequisites` into `neo4j` as relationships to the `course` nodes you created in step 12. Demonstrate the relationships in `neo4j` are present by querying back it using a Cypher queries to display the relationships.
@@ -93,12 +94,9 @@ Unless you are explicitly instructed otherwise, answer each of the following usi
 20. Build a `kibana` course dashboard, from the `sections` index pattern. Allow for the selection of the `academic year` then display three relevant visualization of your choosing. For example, this could be: a summary of courses for that term, bar charts of enrollment to capacity for each course, counts of courses required in program vs electives, etc...
 
 
-
 ### Turning it in
 
-You should turn in a Word Document to Blackboard with the following:
-- Your name, SU email, and IST769 F21 Midterm at the top
-- An overview / summary section of how you approached this problem, including any assumptions you made about the problem itself (if any). 
-- For each challenge question, include the question number, question itself, and your answer.
-- For full credit make sure your answer meets the requirements above.
-- If you cannot figure something out, do your best to write up what you are trying to do and include with that as many specifics as possible as to why you could not get it done. This can only help your evaluation.
+- Complete the `E2-Submission-Form.docx`.
+- Include your `Exam.ipynb` with completed questions. 
+- Make sure your name and email are in BOTH files where you are prompted to add them.
+- turn both files into blackboard prior to the deadline. 
